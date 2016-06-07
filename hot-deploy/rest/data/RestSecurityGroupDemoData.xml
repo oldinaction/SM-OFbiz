@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SecurityGroupPermission groupId="FULLADMIN"
+		permissionId="REST_ADMIN" />
+	<SecurityGroupPermission groupId="FLEXADMIN"
+		permissionId="REST_CREATE" />
+	<SecurityGroupPermission groupId="FLEXADMIN"
+		permissionId="REST_DELETE" />
+	<SecurityGroupPermission groupId="FLEXADMIN"
+		permissionId="REST_UPDATE" />
+	<SecurityGroupPermission groupId="FLEXADMIN"
+		permissionId="REST_VIEW" />
+	<SecurityGroupPermission groupId="VIEWADMIN"
+		permissionId="REST_VIEW" />
+	<SecurityGroupPermission groupId="BIZADMIN"
+		permissionId="REST_ADMIN" />
+</entity-engine-xml>

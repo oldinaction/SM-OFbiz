@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+	<simple-method method-name="createSmPersonOfService" short-description="产生一条SmPerson记录">
+		<make-value entity-name="SmPerson" value-field="newEntity" /><!-- 创建一个SmPerson实体对象 -->
+		<sequenced-id sequence-name="SmPerson" field="newEntity.id" /><!-- 递增的主键 -->
+		<set field="newEntity.username" value="smalle" /><!-- 设置实体相应字段的值 -->
+		<set field="newEntity.password" value="123456" />
+		<create-value value-field="newEntity" /><!-- 往数据库新增一条记录 -->
+	</simple-method>
+	
+	<simple-method method-name="autoAttributes" short-description="自动传入参数产生一条SmPerson记录">
+		<log message="1" level="info"/>
+		<make-value entity-name="SmPerson" value-field="newEntity" /><!-- 创建一个SmPerson实体对象 -->
+		<sequenced-id sequence-name="SmPerson" field="newEntity.id" /><!-- 递增的主键 -->
+		<set-nonpk-fields map="parameters" value-field="newEntity" />
+		<create-value value-field="newEntity" /><!-- 往数据库新增一条记录 -->
+		<field-to-result field="newEntity.id" result-name="id" />
+	</simple-method>
+
+	<simple-method method-name="jsonSearch"
+		short-description="根据传入的json格式查找SmPerson记录" login-required="false">
+		<call-class-method method-name="parseJsonStr2Map"
+			class-name="cn.aezo.utils.SmStringUtils" ret-field="jsonMap">
+			<field field="parameters.jsonStr" type="String" />
+		</call-class-method>
+		<find-by-and list="smPersons" map="jsonMap" entity-name="SmPerson" />
+		<log message="${smPersons}" level="info" />
+		<call-class-method method-name="fromObject"
+			class-name="net.sf.json.JSONObject" ret-field="smPersonsObj">
+			<field field="smPersons" type="java.lang.Object" />
+		</call-class-method>
+		<log message="${smPersonsObj}" level="info" />
+		<!-- <call-object-method method-name="toString" obj-field="smPersonsObj" 
+			ret-field="smPersonsStr"></call-object-method> <field-to-result field="smPersonsStr" 
+			result-name="retJson"/> -->
+		<field-to-result field="parameters.jsonStr"
+			result-name="retJson" />
+	</simple-method>
+
+
+
+</simple-methods>

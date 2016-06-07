@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>Crud Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+    <service name="createCrudPerson" engine="simple" default-entity-name="CrudPerson"
+		invoke="createCrudPerson" location="component://crud/script/CRUD.xml">
+		<description>新增</description>
+		<attribute name="username" mode="IN" type="String"></attribute>
+		<attribute name="password" mode="IN" type="String"></attribute>
+		<attribute name="description" mode="IN" type="String" optional="true"></attribute>
+		<attribute name="id" mode="OUT" type="String"></attribute>
+	</service>
+	
+	<service name="updateCrudPerson" engine="simple" default-entity-name="CrudPerson"
+		invoke="updateCrudPerson" location="component://crud/script/CRUD.xml">
+		<description>修改</description>
+		<attribute name="id" mode="INOUT" type="String"/>
+		<attribute name="username" mode="IN" type="String"/>
+		<attribute name="password" mode="IN" type="String"/>
+		<attribute name="description" mode="IN" type="String" optional="true"/>
+	</service>
+	
+	<service name="deleteCrudPerson" engine="simple" default-entity-name="CrudPerson"
+		invoke="deleteCrudPerson" location="component://crud/script/CRUD.xml">
+		<description>删除</description>
+		<attribute name="id" mode="INOUT" type="String"/>
+	</service>
+    
+</services>

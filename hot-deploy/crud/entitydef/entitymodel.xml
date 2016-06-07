@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ======================== Defaults ======================= -->
+    <!-- ========================================================= -->
+    <title>Entity of Crud Component</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version></version>
+    
+    <entity entity-name="CrudPerson" package-name="cn.aezo.crud" title="实现增删改查所用实体CrudPerson">
+		<field name="id" type="id-ne"></field>
+		<field name="username" type="id-ne"></field>
+		<field name="password" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<prim-key field="id" /><!-- 主键 -->
+	</entity>
+
+</entitymodel>

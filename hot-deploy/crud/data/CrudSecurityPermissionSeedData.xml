@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the Crud Component." permissionId="CRUD_VIEW"/>
+    <SecurityPermission description="Create operations in the Crud Component." permissionId="CRUD_CREATE"/>
+    <SecurityPermission description="Update operations in the Crud Component." permissionId="CRUD_UPDATE"/>
+    <SecurityPermission description="Delete operations in the Crud Component." permissionId="CRUD_DELETE"/>
+    <SecurityPermission description="ALL operations in the Crud Component." permissionId="CRUD_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="CRUD_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="CRUD_ADMIN"/><!-- 新建的组件，加上这个权限，然后ant中stop=>load-seed=>start -->
+
+</entity-engine-xml>

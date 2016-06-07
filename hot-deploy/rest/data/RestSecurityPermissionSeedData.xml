@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SecurityPermission description="View operations in the Rest Component."
+		permissionId="REST_VIEW" />
+	<SecurityPermission description="Create operations in the Rest Component."
+		permissionId="REST_CREATE" />
+	<SecurityPermission description="Update operations in the Rest Component."
+		permissionId="REST_UPDATE" />
+	<SecurityPermission description="Delete operations in the Rest Component."
+		permissionId="REST_DELETE" />
+	<SecurityPermission description="ALL operations in the Rest Component."
+		permissionId="REST_ADMIN" />
+
+	<SecurityGroupPermission groupId="SUPER"
+		permissionId="REST_ADMIN" />
+
+</entity-engine-xml>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+	<description>用来测试minilang语法的service</description>
+	
+	
+	<service name="updatePartyRole" engine="simple" auth="true"
+    	invoke="updatePartyRole" location="component://aezo/script/cn/aezo/mini/UpdatePartyRole.xml">
+    	<attribute name="roleTypeId" mode="IN" type="String"/>
+    </service>
+    
+	<!-- 运行原生的sql语句 -->
+	<service name="runOriginalSql" engine="java" auth="true"
+    	invoke="runOriginalSql" location="cn.aezo.entity.RunOriginalSqlService">
+    	<attribute name="sqlCommand" mode="IN" type="String"/><!-- sql命令 -->
+    	<attribute name="status" mode="OUT" type="String"/>
+    	<attribute name="resultMessage" mode="OUT" type="String"/>
+    </service>
+
+
+</services>

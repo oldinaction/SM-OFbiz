@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service-eca xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/service-eca.xsd">
+
+	<!-- 服务ECA
+		1、服务的生命周期的阶段事件：
+			auth——认证之前
+			in-validate——IN参数检查之前
+			out-validate——OUT参数检查之前
+			invoke——服务调用之前
+			commit——事务提交之前
+			return——服务返回之前
+			global-commit
+			global-rollback
+			run-on-failure
+			run-on-error
+		2、变量 global-commit和 global-rollback有一点不同。如果服务是一个事务的一部分，它们仅在回滚后或者提交的两个阶段(JTA实现)间运行。
+也有两个值默认为false的特殊属性：
+	 -->
+
+    <!-- 新增用户是，根据性别默认新增该用户的爱好 -->
+    <eca service="createSmPersonOfServiceSeca" event="commit" run-on-error="false">
+    	<!-- 如果运行服务createSmPersonOfServiceSeca的传入参数sex的值为boy则运行后面的代码 -->
+        <condition field-name="sex" operator="equals" value="boy"/>
+        <!-- set的key-value最终会传到运行action中服务的传入参数中；env-name是service传入传出参数的字段 -->
+        <set field-name="smPersonId" env-name="id"/>
+        <set field-name="smPersonSex" value="boy"/>
+        <action service="createSmPersonHobbyOfServiceSeca" mode="async"/><!-- 异步运行该服务 -->
+    </eca>
+    <eca service="createSmPersonOfServiceSeca" event="commit" run-on-error="false">
+        <condition field-name="sex" operator="equals" value="girl"/>
+        <set field-name="smPersonId" env-name="id"/>
+        <set field-name="smPersonSex" value="girl"/>
+        <action service="createSmPersonHobbyOfServiceSeca" mode="async"/>
+    </eca>
+
+</service-eca>

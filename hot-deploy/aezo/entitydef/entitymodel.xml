@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>Entity of aezo Component</title>
+	<description>测试OFBiz smalle</description>
+	<copyright>AEZO.CN</copyright>
+	<version>1.0</version>
+
+	<entity entity-name="SmPerson" package-name="cn.aezo.test" title="用户">
+		<field name="id" type="id-ne"></field>
+		<field name="username" type="id-ne"></field>
+		<field name="password" type="id-ne"></field>
+		<field name="description" type="description"></field>
+		<field name="sex" type="id-ne"></field>
+		<prim-key field="id" />
+	</entity>
+	
+	<entity entity-name="SmHobby" package-name="cn.aezo.test" title="爱好">
+		<field name="hobbyId" type="id-ne"/>
+		<field name="name" type="description"/>
+		<field name="note" type="description"/>
+		<prim-key field="hobbyId" />
+	</entity>
+	
+	<entity entity-name="SmPersonHobby" package-name="cn.aezo.test" title="用户的爱好">
+		<field name="smPersonHobbyId" type="id-ne"></field>
+		<field name="smPersonId" type="id-ne"></field>
+		<field name="hobbyId" type="id-ne"></field>
+		<prim-key field="smPersonHobbyId" />
+	</entity>
+	
+	<entity entity-name="SmPersonCreateLog" package-name="cn.aezo.test" title="新建用户日志表">
+		<field name="smPersonCreateLogId" type="id-ne"></field>
+		<field name="username" type="id-ne"/>
+		<field name="description" type="description"/>
+		<field name="smPersonId" type="id-ne"/>
+		<prim-key field="smPersonCreateLogId" />
+	</entity>
+
+</entitymodel>

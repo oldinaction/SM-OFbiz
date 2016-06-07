@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-menu.xsd">
+	<menu name="MainAppBar" title="${uiLabelMap.AezoApplication}"
+		extends="CommonAppBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+		
+		<menu-item name="main" title="${uiLabelMap.CommonMain}"><link target="main" /></menu-item>
+		
+		<menu-item name="createSmPerson" title="服务使用java/minilang实现"><link target="createSmPerson" /></menu-item>
+		<menu-item name="autoAttributes" title="服务自动传参"><link target="autoAttributes" /></menu-item>
+		
+		<menu-item name="eca" title="ECA(服务的SECA/实体的EECA)"><link target="eca"/></menu-item>
+		
+		
+		<menu-item name="startMyJobTest" title="定时任务"><link target="startMyJobTest" confirmation-message="确定启动定时任务？"/></menu-item>
+		
+	</menu>
+</menus>

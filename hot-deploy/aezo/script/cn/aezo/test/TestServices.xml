@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+	<simple-method method-name="createSmPersonOfTest" short-description="产生一条SmPerson记录">
+		<make-value entity-name="SmPerson" value-field="newEntity"/>
+		<sequenced-id sequence-name="SmPerson" field="newEntity.id"/>
+		<set-nonpk-fields value-field="newEntity" map="parameters"/>
+		<create-value value-field="newEntity" />
+		<field-to-result field="newEntity.id" result-name="id"/>
+	</simple-method>
+	
+
+</simple-methods>

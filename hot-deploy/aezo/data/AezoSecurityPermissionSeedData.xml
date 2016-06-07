@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SecurityPermission description="View operations in the Aezo Component." permissionId="AEZO_VIEW" />
+	<SecurityPermission description="Create operations in the Aezo Component." permissionId="AEZO_CREATE" />
+	<SecurityPermission description="Update operations in the Aezo Component." permissionId="AEZO_UPDATE" />
+	<SecurityPermission description="Delete operations in the Aezo Component." permissionId="AEZO_DELETE" />
+	<SecurityPermission description="ALL operations in the Aezo Component." permissionId="AEZO_ADMIN" />
+
+	<SecurityGroupPermission groupId="SUPER" permissionId="AEZO_ADMIN" />
+	
+	<!-- 一般新建的组件admin所在的组FULLADMIN默认没有权限，需要手动加上后使用admin/ofbiz才能登录到程序（需要运行ant中的load-demo等） -->
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="AEZO_ADMIN" />
+
+</entity-engine-xml>

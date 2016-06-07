@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+	<!-- ========================================================= -->
+	<!-- ======================== Defaults ======================= -->
+	<!-- ========================================================= -->
+	<title>视图举例</title>
+	<description>测试视图</description>
+	<copyright>AEZO.CN</copyright>
+	<version>1.0</version>
+	
+	<!-- 
+	(1) 字段解释:
+		> member-entity: 参与视图连接的相关实体(包括视图)
+			entity-alias: 实体别名(后面会使用别名代替实体名)
+		> alias-all: 将此实体的所有字段加入到视图中来
+		> alias: 将某个实体的某个字段加如到视图中来, 必须写在alias-all的后面
+			name: 最终生成视图中的字段
+			field: 参考实体的字段名(如果field和name的值一样, 此时可以省略field)
+			> exclude: 除去某个字段
+		> view-link: 连接两个实体的条件, 里面可以写entity-condition
+			entity-alias: 主实体
+			rel-entity-alias: 被连接进来的实体
+			> key-map: 连接关系
+				field-name: 字段名<entity-alias中的此字段要添加到视图里; 而rel-entity-alias只需要真实的表中有即可, 不需要添加到视图中>
+				rel-field-name: 被连接实体字段名
+		> relation: 给此视图设置外键
+		> entity-condition: 给此视图设置筛选条件(可以放在view-link里面, 也可以直接放在view-entity下面)
+			(1)此时condition-expr中的属性field-name(必须)和 entity-alias指明某个表的某个字段, 而比较的值可以和(rel-field-name + rel-entity-alias) 或者 value中的一个进行比较
+			(2)放在view-link里面时, entity-alias 省略则默认为view-link的 entity-alias实体中的该字段 ;如果view-link的 entity-alias实体中没有该field-name则需要指明entity-alias
+	(2) view-link和entity-condition区别: view-link是将两个表做连接(根据某个字段), entity-condition是对相应的实体(包括视图)过滤；第一个view-link需要写主实体
+	(3) alias必须写在alias-all的后面
+	(4) 连接视图时, 注意主维度是那个字段, 再根据该字段去关联, 注意该字段在主观上是唯一的
+	
+	 -->
+
+	<view-entity entity-name="YpartyContact" package-name="org.ofbiz.view" title="当事人联系方式视图">
+    	<member-entity entity-alias="P" entity-name="Party"/>
+    	<member-entity entity-alias="CMPT" entity-name="ContactMechPurposeType"/>
+    	<member-entity entity-alias="PCMP" entity-name="PartyContactMechPurpose"/>
+    	<member-entity entity-alias="CM" entity-name="ContactMech"/>
+    	<member-entity entity-alias="PA" entity-name="PostalAddress"/>
+    	<member-entity entity-alias="TN" entity-name="TelecomNumber"/>
+    	<alias-all entity-alias="CMPT"/>
+    	<alias-all entity-alias="PCMP"/>
+    	<alias-all entity-alias="CM"/>
+    	<alias-all entity-alias="TN"/>
+    	<alias name="partyId" entity-alias="P"/><!-- alias必须写在alias-all的后面 -->
+    	<alias name="address1" entity-alias="PA"/>
+    	<alias name="postalCode" entity-alias="PA"/>
+    	<alias name="countryGeoId" entity-alias="PA"/>
+    	<alias name="stateProvinceGeoId" entity-alias="PA"/>
+    	<alias name="countyGeoId" entity-alias="PA"/>
+    	<!-- 以CMPT(联系类型)为维度 entity-alias="CMPT"-->
+    	<view-link rel-entity-alias="PCMP" entity-alias="CMPT"><!-- 将PCMP关联到CMPT上 -->
+    		<key-map field-name="contactMechPurposeTypeId"/>
+    		<entity-condition><!-- 进行筛选 -->
+    			<condition-expr field-name="contactMechPurposeTypeId" operator="like" value="PHONE_%"/>
+    		</entity-condition>
+    	</view-link>
+    	<view-link rel-entity-alias="P" entity-alias="PCMP"><!-- 将P关联到PCMP上 -->
+    		<key-map field-name="partyId"/>
+    	</view-link>
+    	<view-link rel-entity-alias="CM" entity-alias="PCMP"><!-- 将CM关联到PCMP上 -->
+    		<key-map field-name="contactMechId"/>
+    	</view-link>
+    	<view-link rel-entity-alias="PA" entity-alias="CM" rel-optional="true"><!-- 将PA关联到CM上 ; rel-optional="true"是否可选; 此时CM使用contactMechId关联了两张表, 而且两种表中的contactMechId不重复, 故要设置为可选 -->
+    		<key-map field-name="contactMechId"/>
+    	</view-link>
+    	<view-link rel-entity-alias="TN" entity-alias="CM" rel-optional="true"><!-- 将TN关联到CM上 ; rel-optional="true"是否可选 -->
+    		<key-map field-name="contactMechId"/>
+    	</view-link>
+    </view-entity>
+
+</entitymodel>

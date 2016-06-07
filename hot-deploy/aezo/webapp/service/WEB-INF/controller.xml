@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+	<!-- The controller elements that are common to all OFBiz components can 
+		be found in the following xml file. A component can override the elements 
+		found in the common-controller.xml file. -->
+	<include location="component://common/webcommon/WEB-INF/common-controller.xml" />
+
+	<description>service Component Site Configuration File</description>
+
+	<!-- Events to run on every request before security (chains exempt) -->
+	<!-- <preprocessor> </preprocessor> -->
+	<!-- Events to run on every request after all other processing (chains exempt) -->
+	<!-- <postprocessor> <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" 
+		invoke="test"/> </postprocessor> -->
+
+	<!-- Request Mappings -->
+	<request-map uri="main">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="main" />
+	</request-map>
+	
+	<request-map uri="createSmPerson">
+		<security https="false" auth="true" />
+		<response name="success" type="view" value="createSmPerson"/>
+	</request-map>
+	<request-map uri="createSmPersonOfServiceBasic">
+		<description>服务使用java方法实现</description>
+		<event type="service" invoke="createSmPersonOfServiceBasic" path="component://aezo/servicedef/services_service.xml"/>
+		<response name="success" type="view" value="main"/>
+	</request-map>
+	<request-map uri="createSmPersonOfService">
+		<description>服务使用minilang实现</description>
+		<event type="service" invoke="createSmPersonOfService" path="component://aezo/servicedef/services_service.xml"/>
+		<response name="success" type="view" value="main"/>
+	</request-map>
+	
+	<request-map uri="autoAttributes">
+		<description>服务中的自动传参</description>
+		<response name="success" type="view" value="autoAttributes"/>
+	</request-map>
+	<request-map uri="autoAttributesFormTarget">
+		<description>服务中的自动传参Form表单的target</description>
+		<event type="service" path="component://aezo/servicedef/services_service.xml" invoke="autoAttributes" />
+		<response name="success" type="request-redirect" value="autoAttributes">
+			<redirect-parameter name="id" /><!-- name和传出的参数名相同就行，不需要from-filed -->
+		</response>
+	</request-map>
+	
+	<request-map uri="eca">
+		<description>服务的eca</description>
+		<security https="false" auth="true"/>
+		<response name="success" type="view" value="eca"/>
+	</request-map>
+	<request-map uri="createSmPersonOfServiceSeca">
+		<description>服务的eca</description>
+		<event type="service" invoke="createSmPersonOfServiceSeca" path="component://aezo/servicedef/services_service.xml"/>
+		<response name="success" type="view" value="main"/>
+	</request-map>
+
+	<request-map uri="startMyJobTest">
+		<description>启动定时服务</description>
+		<security https="false" auth="false"/>
+		<event type="java" path="cn.aezo.service.MyJobTest" invoke="startMyJobTest"/>
+		<response name="success" type="none"/>
+	</request-map>
+
+
+
+	<!-- View Mappings -->
+	<view-map name="main" type="screen" page="component://aezo/widget/service/ServiceScreens.xml#main" />
+	<view-map name="error" type="screen" page="component://aezo/widget/service/ServiceScreens.xml#error" />
+	<view-map name="createSmPerson" type="screen" page="component://aezo/widget/service/ServiceScreens.xml#createSmPerson" />
+	<view-map name="autoAttributes" type="screen" page="component://aezo/widget/service/ServiceScreens.xml#autoAttributes" />
+	<view-map name="eca" type="screen" page="component://aezo/widget/service/ServiceScreens.xml#eca" />
+
+
+
+
+</site-conf>

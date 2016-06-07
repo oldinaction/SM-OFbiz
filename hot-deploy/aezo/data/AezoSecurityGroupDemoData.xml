@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+	<SecurityGroupPermission groupId="FULLADMIN" permissionId="AEZO_ADMIN" />
+	<SecurityGroupPermission groupId="FLEXADMIN" permissionId="AEZO_CREATE" />
+	<SecurityGroupPermission groupId="FLEXADMIN" permissionId="AEZO_DELETE" />
+	<SecurityGroupPermission groupId="FLEXADMIN" permissionId="AEZO_UPDATE" />
+	<SecurityGroupPermission groupId="FLEXADMIN" permissionId="AEZO_VIEW" />
+	<SecurityGroupPermission groupId="VIEWADMIN" permissionId="AEZO_VIEW" />
+	<SecurityGroupPermission groupId="BIZADMIN" permissionId="AEZO_ADMIN" />
+
+	<!-- 定义一个安全组，并给此安全组设置拥有的权限 -->
+	<SecurityGroup groupId="AEZO_A" description="AEZO权限组A" />
+	<SecurityGroupPermission groupId="AEZO_A" permissionId="AEZO_ADMIN" />
+
+	<SecurityGroup groupId="AEZO_B" description="AEZO权限组B" />
+	<SecurityGroupPermission groupId="AEZO_B" permissionId="OFBTOOLS_VIEW" /><!-- 登录某个组件最基本的权限 -->
+	<SecurityGroupPermission groupId="AEZO_B" permissionId="WEBTOOLS_VIEW" /><!-- 可以登录webtools组件，并在顶级菜单中显示"web工具"项 -->
+	<SecurityGroupPermission groupId="AEZO_B" permissionId="AEZO_VIEW" /><!-- 登录AEZO并显示其顶级菜单 -->
+	<SecurityGroupPermission groupId="AEZO_B" permissionId="SERVICE_INVOKE_ANY" /><!-- 可以通过"web工具"运行任何服务 -->
+
+	<SecurityGroup groupId="AEZO_C" description="AEZO权限组C" />
+	<SecurityGroupPermission groupId="AEZO_C" permissionId="AEZO_VIEW" />
+	<SecurityGroupPermission groupId="AEZO_C" permissionId="AEZO_CREATE" />
+
+
+</entity-engine-xml>

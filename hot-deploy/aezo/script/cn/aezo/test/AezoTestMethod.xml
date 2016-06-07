@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+
+    <simple-method  method-name="smPersonTests" short-description="测试smPerson新增改查" login-required="false">
+        <!-- 必须加，否则报需要登录才能运行下面的服务(You must be logged in to complete the [产生一条SmPerson记录] process.) -->
+        <entity-one entity-name="UserLogin" value-field="userLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+        <set field="createSmPersonCtx.userLogin" from-field="userLogin"/>
+        
+        <set field="createSmPersonCtx.username" value="smalleTest"/>
+        <set field="createSmPersonCtx.password" value="123456"/>
+        <set field="createSmPersonCtx.description" value="这是实现OFBiz的Test功能产生的记录!"/>
+
+        <call-service service-name="createSmPersonOfTest" in-map-name="createSmPersonCtx">
+            <result-to-field result-name="id"/>
+        </call-service>
+        <log level="info" message="========  新增SmPerson记录 [${id}] ======="/>
+       
+        <entity-one entity-name="SmPerson" value-field="smPersonList"/>
+        <assert>
+            <not><if-empty field="smPersonList"/></not>
+            <if-compare-field field="smPersonList.id" to-field="id" operator="equals"/>
+        </assert>
+        <check-errors/>
+
+    </simple-method>
+</simple-methods>

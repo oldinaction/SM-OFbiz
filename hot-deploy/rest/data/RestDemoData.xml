@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-engine-xml>
 
+<SmPerson username="smalle" password="123456" description="Hello"/>
+<SmPerson username="aezo" password="aezo"/>
+<SmPerson username="oldinaction" password="abc" description="123"/>
+
 </entity-engine-xml>

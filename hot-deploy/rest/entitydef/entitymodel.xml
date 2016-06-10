@@ -8,5 +8,13 @@
 	<description>None</description>
 	<copyright></copyright>
 	<version></version>
+	
+	<entity entity-name="SmPerson" no-auto-stamp="true" package-name="cn.aezo.rest">
+		<field name="id" type="id"/>
+		<field name="username" type="short-varchar"/>
+		<field name="password" type="short-varchar"/>
+		<field name="description" type="short-varchar"/>
+		<prim-key field="id"/>
+	</entity>
 
 </entitymodel>

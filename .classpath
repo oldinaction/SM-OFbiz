@@ -129,8 +129,7 @@
 	<classpathentry kind="lib" path="framework/webapp/lib/rome-0.9.jar"/>
 	<classpathentry kind="lib" path="framework/webapp/lib/velocity-1.6.1.jar"/>
 	<classpathentry excluding="org/ofbiz/accounting/thirdparty/cybersource/**|org/ofbiz/accounting/thirdparty/verisign/**|org/ofbiz/accounting/thirdparty/worldpay/**|org/ofbiz/accounting/thirdparty/paypal/PayPalServices.java|org/ofbiz/accounting/thirdparty/orbital/**|org/ofbiz/accounting/thirdparty/securepay/**|org/ofbiz/accounting/thirdparty/ideal/**" kind="src" path="applications/accounting/src"/>
-	<classpathentry kind="src" path="hot-deploy/aezo/src"/>
-	<classpathentry kind="src" path="hot-deploy/crud/src"/>
+	<classpathentry kind="src" path="hot-deploy/rocketmq/src"/>
 	<classpathentry excluding="org/ofbiz/content/openoffice/|org/ofbiz/content/report/" kind="src" path="applications/content/src"/>
 	<classpathentry kind="src" path="applications/manufacturing/src"/>
 	<classpathentry kind="src" path="applications/marketing/src"/>
@@ -161,5 +160,28 @@
 	<classpathentry kind="src" path="framework/widget/src"/>
 	<classpathentry kind="src" path="specialpurpose/ecommerce/src"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/annotation-indexer-1.4.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/bridge-method-annotation-1.12.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/fastjson-1.2.3.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/jackson-annotations-2.2.3.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/jackson-core-2.2.3.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/jackson-databind-2.2.3.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/javassist-3.7.ga.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/logback-classic-1.0.13.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/logback-core-1.0.13.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/mockito-all-1.9.5.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/mysql-connector-java-5.1.31.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/netty-all-4.0.25.Final.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-broker-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-client-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-common-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-example-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-filtersrv-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-namesrv-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-remoting-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-srvutil-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-store-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-tools-3.2.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

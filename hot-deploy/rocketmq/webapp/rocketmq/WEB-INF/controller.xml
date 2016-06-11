@@ -30,6 +30,16 @@
 	    <event type="java" invoke="regist" path="cn.aezo.rocketmq.Regist"/>
 	    <response name="success" type="view" value="main"/>
     </request-map>
+    <request-map uri="producer">
+	    <security https="false" auth="false"/>
+	    <event type="java" invoke="producer" path="cn.aezo.rocketmq.StartProducer"/>
+	    <response name="success" type="none"/>
+    </request-map>
+    <request-map uri="consumer">
+	    <security https="false" auth="false"/>
+	    <event type="java" invoke="consumer" path="cn.aezo.rocketmq.StartConsumer"/>
+	    <response name="success" type="none"/>
+    </request-map>
     
     
     <!-- View Mappings -->

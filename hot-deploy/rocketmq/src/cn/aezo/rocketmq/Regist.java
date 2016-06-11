@@ -1,6 +1,8 @@
 package cn.aezo.rocketmq;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,7 @@ import org.ofbiz.base.util.UtilMisc;
 import org.ofbiz.entity.Delegator;
 import org.ofbiz.entity.GenericEntityException;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.rocketmq.client.exception.MQBrokerException;
 import com.alibaba.rocketmq.client.exception.MQClientException;
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
@@ -36,14 +39,18 @@ public class Regist {
 					"inputTm", new Timestamp(System.currentTimeMillis())));
 			
 			// 发送消息到MQ
-			Message msg = new Message("RegistTopic", "CreateContactTag", ("Hello").getBytes());
-			msg.putUserProperty("personId", personId);
-			msg.putUserProperty("telephone", telephone);
-			msg.putUserProperty("address", address);
+			Map<String, Object> map = new HashMap<String, Object>(); // 消息body部分，默认限制的消息大小为131072
+			map.put("personId", personId);
+			map.put("telephone", telephone);
+			map.put("address", address);
+			
+			Message msg = new Message("RegistTopic", "CreateContactTag", JSONObject.toJSONString(map).getBytes());
+			msg.putUserProperty("ticket", "smalle"); // 设置用户参数
+			
 			DefaultMQProducer producer = Producer.getProducer();
             SendResult sendResult = producer.send(msg);
             System.out.println(sendResult);
-			
+            
 		} catch (GenericEntityException e) {
 			e.printStackTrace();
 		} catch (MQClientException e) {

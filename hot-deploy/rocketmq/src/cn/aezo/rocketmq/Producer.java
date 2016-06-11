@@ -39,7 +39,7 @@ public class Producer implements Container {
 	@Override
 	public boolean start() throws ContainerException {
 		producer = new DefaultMQProducer("Test_Producer_001");
-        producer.setNamesrvAddr("198.168.17.50:9876");
+        producer.setNamesrvAddr("127.0.0.1:9876");
         try {
 			producer.start();
 			System.out.println("Test_Producer_001 start==>" + producer);

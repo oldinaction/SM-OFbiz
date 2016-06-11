@@ -34,5 +34,7 @@ under the License.
     </container>
 
     <container name="component-container" loaders="testlist" class="org.ofbiz.base.container.JustLoadComponentsContainer"/>
-
+	
+	<container name="rocketmq-producer-container" loaders="main" class="cn.aezo.rocketmq.Producer"/>
+	<!-- <container name="rocketmq-consumer-container" loaders="main" class="cn.aezo.rocketmq.Consumer"/> -->
 </ofbiz-containers>

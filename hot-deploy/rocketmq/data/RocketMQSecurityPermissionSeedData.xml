@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the RocketMQ Component." permissionId="ROCKETMQ_VIEW"/>
+    <SecurityPermission description="Create operations in the RocketMQ Component." permissionId="ROCKETMQ_CREATE"/>
+    <SecurityPermission description="Update operations in the RocketMQ Component." permissionId="ROCKETMQ_UPDATE"/>
+    <SecurityPermission description="Delete operations in the RocketMQ Component." permissionId="ROCKETMQ_DELETE"/>
+    <SecurityPermission description="ALL operations in the RocketMQ Component." permissionId="ROCKETMQ_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="ROCKETMQ_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="ROCKETMQ_ADMIN"/>
+
+</entity-engine-xml>

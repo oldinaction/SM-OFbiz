@@ -442,6 +442,7 @@ under the License.
             <jvmarg value="-Xdebug"/>
             <jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8091"/>
         	<jvmarg value="-Dfile.encoding=UTF-8"/><!-- 以UTF-8启动，防止乱码 -->
+        	<jvmarg value="-Drocketmq.namesrv.addr=198.168.17.50:9876"/><!-- RocketMQ启动指定NameServer -->
             <arg value="start-debug"/>
             <arg value="-portoffset=${portoffset}"/>
         </java>

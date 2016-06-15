@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the LightStreamer Component." permissionId="LIGHTSTREAMER_VIEW"/>
+    <SecurityPermission description="Create operations in the LightStreamer Component." permissionId="LIGHTSTREAMER_CREATE"/>
+    <SecurityPermission description="Update operations in the LightStreamer Component." permissionId="LIGHTSTREAMER_UPDATE"/>
+    <SecurityPermission description="Delete operations in the LightStreamer Component." permissionId="LIGHTSTREAMER_DELETE"/>
+    <SecurityPermission description="ALL operations in the LightStreamer Component." permissionId="LIGHTSTREAMER_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="LIGHTSTREAMER_ADMIN"/>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="LIGHTSTREAMER_ADMIN"/>
+
+</entity-engine-xml>

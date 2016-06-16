@@ -20,5 +20,23 @@
             </widgets>
         </section>
     </screen>
+    <screen name="hello">
+        <section>
+            <actions>
+                <set field="headerItem" value="hello"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="LightStreamerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+                    		<html>
+                    			<html-template location="component://lightstreamer/webapp/lightstreamer/hello.ftl"/>
+                    		</html>
+                    	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
 
 </screens>

@@ -29,9 +29,14 @@
     	<security https="false" auth="false"/>
     	<response name="success" type="view" value="hello"/>
     </request-map>
+    <request-map uri="remote">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="remote"/>
+    </request-map>
     
     
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://lightstreamer/widget/LightStreamerScreens.xml#main"/>
     <view-map name="hello" type="screen" page="component://lightstreamer/widget/LightStreamerScreens.xml#hello"/>
+    <view-map name="remote" type="screen" page="component://lightstreamer/widget/LightStreamerScreens.xml#remote"/>
 </site-conf>

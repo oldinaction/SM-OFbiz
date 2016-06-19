@@ -1,0 +1,5 @@
+远程Adapters
+
+Remote Adapters的原理是LS的服务器只有一个data adapter和metadata adapter的代理，用户可以自己写一个独立于LS 服务器的adapter程序，我们自己写的adapter和服务器代理的adapter使用TCP通信（使用了3个端口）
+
+参考：LS_HOME/DOCS-SDKs\adapter_remoting_infrastructure\doc/Adapter Remoting Infrastructure.pdf

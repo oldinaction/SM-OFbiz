@@ -41,7 +41,24 @@
 	    <response name="success" type="none"/>
     </request-map>
     
+    <request-map uri="admin">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="admin"/>
+    </request-map>
+    <request-map uri="smalle">
+    	<security https="false" auth="false"/>
+    	<response name="success" type="view" value="smalle"/>
+    </request-map>
+    <request-map uri="sendMessageToMQ">
+    	<security https="false" auth="false"/>
+    	<event type="java" invoke="sendMessageToMQ" path="cn.aezo.ls.MsgControl"/>
+    	<response name="success" type="none"/>
+    </request-map>
+    
+    
     
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://rocketmq/widget/RocketMQScreens.xml#main"/>
+    <view-map name="admin" type="screen" page="component://rocketmq/widget/RocketMQScreens.xml#admin"/>
+    <view-map name="smalle" type="screen" page="component://rocketmq/widget/RocketMQScreens.xml#smalle"/>
 </site-conf>

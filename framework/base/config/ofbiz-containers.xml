@@ -37,4 +37,5 @@ under the License.
 	
 	<container name="rocketmq-producer-container" loaders="main" class="cn.aezo.rocketmq.Producer"/>
 	<container name="rocketmq-consumer-container" loaders="main" class="cn.aezo.rocketmq.Consumer"/>
+	<container name="lightstreamer-adapter-container" loaders="main" class="cn.aezo.ls.remote.server.ServerMain"/>
 </ofbiz-containers>

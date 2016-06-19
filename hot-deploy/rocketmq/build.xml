@@ -31,8 +31,6 @@
         <fileset dir="../../framework/widget/build/lib" includes="*.jar"/>
         <fileset dir="../../framework/webapp/lib" includes="*.jar"/>
         <fileset dir="../../framework/webapp/build/lib" includes="*.jar"/>
-    	<fileset dir="../lightstreamer/lib" includes="*.jar"/>
-    	<fileset dir="../lightstreamer/build/lib" includes="*.jar"/>
     </path>
 
     <!-- ================================================================= -->

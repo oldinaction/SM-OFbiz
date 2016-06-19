@@ -75,7 +75,7 @@
       if (!text) {
         alert("Can't send an empty message");
       } else {
-        var mex = "CHAT|" + text;
+        var mex = "REMOTE|smalle|" + text;
         // client.sendMessage(mex); // 直接发给Lightstreamer
         
         // 先把消息发送给RocketMQ
@@ -138,8 +138,9 @@
     });
 
     //  create the Subscription; field names will be extracted from the grid
-    var chatSubscription = new Subscription("DISTINCT","chat_room",chatGrid.extractFieldList());
-    chatSubscription.setDataAdapter("CHAT_ROOM");
+    // 订阅人id为sm_smalle
+    var chatSubscription = new Subscription("DISTINCT","sm_smalle",chatGrid.extractFieldList());
+    chatSubscription.setDataAdapter("MY_REMOTE");
     chatSubscription.setRequestedSnapshot(30);
 
     chatSubscription.addListener(chatGrid);

@@ -16,11 +16,11 @@ public class MsgControl {
 	
 	public static String sendMessageToMQ(HttpServletRequest request, HttpServletResponse response) {
 		String message = request.getParameter("message");
-		System.out.println("message==>" + message);
+		System.out.println("message==>" + message + " sessionId==>" + request.getSession().getId());
 		
 		try {
-			Message msg = new Message("MQLS", "LightStreamer", "Hello MQLS".getBytes());
-			msg.putUserProperty("message", message); // 设置用户参数
+			Message msg = new Message("MQLS", "LightStreamer", message.getBytes());
+			msg.putUserProperty("sessionId", request.getSession().getId()); // 设置用户参数
 			
 			DefaultMQProducer producer = Producer.getProducer();
 	        SendResult sendResult = producer.send(msg);

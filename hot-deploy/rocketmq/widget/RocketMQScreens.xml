@@ -20,5 +20,42 @@
             </widgets>
         </section>
     </screen>
+    
+    <screen name="admin">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="RocketMQCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+                    		<html>
+                    			<html-template location="component://rocketmq/webapp/rocketmq/admin.ftl"/>
+                    		</html>
+                    	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    <screen name="smalle">
+        <section>
+            <actions>
+                <set field="headerItem" value="hello"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="RocketMQCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific>
+                    		<html>
+                    			<html-template location="component://rocketmq/webapp/rocketmq/smalle.ftl"/>
+                    		</html>
+                    	</platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
 
 </screens>

@@ -8,12 +8,11 @@
 </head>
 
 <body>
-  <a href="https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:1" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <a href="https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript" target="_blank">GitHub</a>
   <div id="wrap">
     <table width="500" border="0">
       <tr>
-        <td><a href="http://www.lightstreamer.com" target="_blank">
-          <img src="/tomahawk/lightstreamer/images/logo.png" alt="LIGHTSTREAMER" hspace="0" border="0" /></a></td>
+        <td><a href="http://www.lightstreamer.com" target="_blank">LIGHTSTREAMER</a></td>
         <td class="demoTitle">BASIC CHAT DEMO</td>
       </tr>
     </table>
@@ -77,7 +76,17 @@
         alert("Can't send an empty message");
       } else {
         var mex = "CHAT|" + text;
-        client.sendMessage(mex);
+        // client.sendMessage(mex); // 直接发给Lightstreamer
+        
+        // 先把消息发送给RocketMQ
+        $.ajax({
+        	type: "POST",
+        	url: "sendMessageToMQ",
+        	data: {"message": mex},
+        	success: function(data) {
+        		console.log("===>" + data);
+        	}
+        });
       }
     }
   }
@@ -100,6 +109,7 @@
         if (info == null) {
           return;
         }
+        console.log(info);
         // associate different colors to the messages from different senders
         var nick = info.getCellValue("nick");
         var ip = info.getCellValue("IP");

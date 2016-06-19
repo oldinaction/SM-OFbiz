@@ -29,6 +29,11 @@
     	<security https="false" auth="false"/>
     	<response name="success" type="view" value="hello"/>
     </request-map>
+    <request-map uri="sendMessageToMQ">
+    	<security https="false" auth="false"/>
+    	<event type="java" invoke="sendMessageToMQ" path="cn.aezo.ls.MsgControl"/>
+    	<response name="success" type="none"/>
+    </request-map>
     
     
     <!-- View Mappings -->

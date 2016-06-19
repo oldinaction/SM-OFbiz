@@ -129,6 +129,7 @@
 	<classpathentry kind="lib" path="framework/webapp/lib/rome-0.9.jar"/>
 	<classpathentry kind="lib" path="framework/webapp/lib/velocity-1.6.1.jar"/>
 	<classpathentry excluding="org/ofbiz/accounting/thirdparty/cybersource/**|org/ofbiz/accounting/thirdparty/verisign/**|org/ofbiz/accounting/thirdparty/worldpay/**|org/ofbiz/accounting/thirdparty/paypal/PayPalServices.java|org/ofbiz/accounting/thirdparty/orbital/**|org/ofbiz/accounting/thirdparty/securepay/**|org/ofbiz/accounting/thirdparty/ideal/**" kind="src" path="applications/accounting/src"/>
+	<classpathentry kind="src" path="hot-deploy/lightstreamer/src"/>
 	<classpathentry kind="src" path="hot-deploy/rocketmq/src"/>
 	<classpathentry excluding="org/ofbiz/content/openoffice/|org/ofbiz/content/report/" kind="src" path="applications/content/src"/>
 	<classpathentry kind="src" path="applications/manufacturing/src"/>
@@ -183,5 +184,10 @@
 	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-srvutil-3.2.6.jar"/>
 	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-store-3.2.6.jar"/>
 	<classpathentry kind="lib" path="hot-deploy/rocketmq/lib/rocketmq-tools-3.2.6.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/lightstreamer/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/lightstreamer/lib/ls-adapter-interface.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/lightstreamer/lib/ls-client.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/lightstreamer/lib/ls-javase-client-3.0.0-b1.jar"/>
+	<classpathentry kind="lib" path="hot-deploy/lightstreamer/lib/ls-adapter-remote.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
